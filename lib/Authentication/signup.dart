@@ -1,18 +1,21 @@
 // ignore: file_names
+import 'package:bubble_chat/Authentication/LoginScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({
     super.key,
   });
 
   @override
-  State<LoginScreen> createState() => _LoginScreen();
+  State<SignUpScreen> createState() => _LoginScreen();
 }
 
-class _LoginScreen extends State<LoginScreen> {
+class _LoginScreen extends State<SignUpScreen> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _bioController = TextEditingController();
 
   void _login() {
     String username = _usernameController.text;
@@ -27,17 +30,30 @@ class _LoginScreen extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Register'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const CircleAvatar(
+              backgroundColor: CupertinoColors.black,
+              radius: 70,
+            ),
             TextField(
               controller: _usernameController,
               decoration: const InputDecoration(
                 labelText: 'Username',
+              ),
+            ),
+            const SizedBox(
+              height: 16.0,
+            ),
+            TextField(
+              controller: _usernameController,
+              decoration: const InputDecoration(
+                labelText: 'Bio',
               ),
             ),
             const SizedBox(
@@ -53,6 +69,19 @@ class _LoginScreen extends State<LoginScreen> {
               onPressed: _login,
               child: const Text('Login'),
             ),
+             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Already have\'n account "),
+                GestureDetector(
+                  onTap: () => Navigator.of(context).pop(),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text('Login',style: TextStyle(fontWeight: FontWeight.bold),),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),

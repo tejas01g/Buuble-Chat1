@@ -1,5 +1,5 @@
 
-import 'package:bubble_chat/LoginScreen.dart';
+import 'package:bubble_chat/Authentication/LoginScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';

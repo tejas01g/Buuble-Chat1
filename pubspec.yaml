@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.0-24.0.dev <4.0.0'
+  sdk: '>=3.0.2 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -40,6 +40,7 @@ dependencies:
   file_picker: ^6.1.1
   uuid: ^4.3.3
   image_picker: ^1.0.7
+  lottie: ^3.0.0
   mime: ^1.0.4
   path_provider: ^2.1.2
   open_filex: ^4.3.4

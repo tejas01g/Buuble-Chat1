@@ -1,10 +1,7 @@
-import 'dart:ui';
 
 import 'package:bubble_chat/LoginScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -17,10 +14,6 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  void _login() {
-    // Add your login logic here
-    print('Login button pressed');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +87,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16.0, vertical: 8.0),
                       child: Text(
-                        "Let\'s Chat",
+                        "Let's Chat",
                         style: TextStyle(
                           color:
                               Theme.of(context).brightness == Brightness.light

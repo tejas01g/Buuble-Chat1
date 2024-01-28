@@ -1,5 +1,4 @@
 // ignore: file_names
-import 'package:bubble_chat/Authentication/LoginScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -32,59 +31,61 @@ class _LoginScreen extends State<SignUpScreen> {
       appBar: AppBar(
         title: const Text('Register'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CircleAvatar(
-              backgroundColor: CupertinoColors.black,
-              radius: 70,
-            ),
-            TextField(
-              controller: _usernameController,
-              decoration: const InputDecoration(
-                labelText: 'Username',
-              ),
-            ),
-            const SizedBox(
-              height: 16.0,
-            ),
-            TextField(
-              controller: _usernameController,
-              decoration: const InputDecoration(
-                labelText: 'Bio',
-              ),
-            ),
-            const SizedBox(
-              height: 16.0,
-            ),
-            TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(labelText: 'Password'),
-            ),
-            const SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: _login,
-              child: const Text('Login'),
-            ),
-             Row(
+      body:  Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Already have\'n account "),
-                GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text('Login',style: TextStyle(fontWeight: FontWeight.bold),),
+                const CircleAvatar(
+                  backgroundColor: CupertinoColors.black,
+                  radius: 70,
+                ),
+                TextField(
+                  controller: _usernameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Username',
                   ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                TextField(
+                  controller: _bioController,
+                  decoration: const InputDecoration(
+                    labelText: 'Bio',
+                  ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                TextField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(labelText: 'Password'),
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: _login,
+                  child: const Text('SignUp'),
+                ),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Already have\'n account "),
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).pop(),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Login',style: TextStyle(fontWeight: FontWeight.bold),),
+                      ),
+                    )
+                  ],
                 )
               ],
-            )
-          ],
+            ),
+          ),
         ),
-      ),
     );
   }
 }

@@ -1,7 +1,7 @@
-
 import 'package:bubble_chat/Authentication/LoginScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -14,7 +14,6 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,28 +25,30 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             const SizedBox(
               height: 100,
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Bubble Chat',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: CupertinoColors.black,
+                style: GoogleFonts.redHatDisplay(
+                  textStyle: const TextStyle(
+                    color: CupertinoColors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Beyond Words, Bubbling Ideas: Sparking Dialogue, Anytime, Anywhere',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.normal,
-                  color: CupertinoColors.black,
-                ),
-              ),
-            ),
+            Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    'Beyond Words, Bubbling Ideas: Sparking Dialogue, Anytime, Anywhere',
+                    style: GoogleFonts.redHatDisplay(
+                      textStyle: const TextStyle(
+                        color: CupertinoColors.black,
+                        //    fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ))),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Lottie.network(

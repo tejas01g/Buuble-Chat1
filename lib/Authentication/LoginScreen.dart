@@ -92,6 +92,7 @@ class _LoginScreen extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // ignore: unnecessary_string_escapes
                   const Text("Don'\'t have\'n account "),
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(CupertinoPageRoute(

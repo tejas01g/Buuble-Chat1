@@ -1,6 +1,11 @@
 // ignore: file_names
+import 'dart:ffi';
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({
@@ -12,9 +17,28 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _LoginScreen extends State<SignUpScreen> {
+  Uint8List? _image;
+  File? image;
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
+  Future<void> selectImage() async {
+    final picker = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (picker != null) {
+      final Uint8List im = await picker.readAsBytes();
+
+      setState(() {
+        _image = im;
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+              'No image was selected, please select the image to continue'),
+        ),
+      );
+    }
+  }
 
   void _login() {
     String username = _usernameController.text;
@@ -37,10 +61,37 @@ class _LoginScreen extends State<SignUpScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CircleAvatar(
-                backgroundColor: CupertinoColors.black,
-                radius: 70,
+              Stack(
+                children: [
+                  _image != null
+                      ? CircleAvatar(
+                          radius: 64,
+                          backgroundImage: MemoryImage(_image!),
+                          backgroundColor: Colors.black,
+                        )
+                      : const CircleAvatar(
+                          radius: 64,
+                          backgroundColor: Colors.black,
+                          backgroundImage: NetworkImage(
+                              'https://media.istockphoto.com/id/519078727/photo/male-silhouette-as-avatar-profile-picture.webp?b=1&s=170667a&w=0&k=20&c=JzPsyMEFcdQp2UlFqLVeuOaj2bOpteXUWFR9FJzTnBM='),
+                        ),
+                  Positioned(
+                    bottom: -10,
+                    left: 10,
+                    child: CupertinoButton(
+                        onPressed: selectImage,
+                        child: const Icon(
+                          CupertinoIcons.photo_camera_solid,
+                          size: 30,
+                          color: CupertinoColors.systemGrey,
+                        )),
+                  )
+                ],
               ),
+              // const CirleAvatar(
+              //   backgroundColor: CupertinoColors.black,
+              //   radius: 70,
+              // ),
               TextField(
                 controller: _usernameController,
                 decoration: const InputDecoration(

@@ -2,6 +2,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:bubble_chat/Screens/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -120,6 +121,11 @@ class _LoginScreen extends State<SignUpScreen> {
               ElevatedButton(
                 onPressed: _login,
                 child: const Text('SignUp'),
+              ),
+              CupertinoButton(
+                onPressed: () => Navigator.of(context).pushReplacement(
+                    CupertinoPageRoute(builder: (context) => const Home())),
+                child: const Text('Guest'),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

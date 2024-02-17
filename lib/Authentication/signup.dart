@@ -30,6 +30,7 @@ class _LoginScreen extends State<SignUpScreen> {
         _image = im;
       });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -76,7 +77,8 @@ class _LoginScreen extends State<SignUpScreen> {
                         ),
                   Positioned(
                     bottom: -10,
-                    left: 10,
+                    right: 10,
+                    left: 70,
                     child: CupertinoButton(
                         onPressed: selectImage,
                         child: const Icon(

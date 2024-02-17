@@ -20,7 +20,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const SizedBox(
               height: 100,
@@ -38,30 +38,36 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
             ),
-            Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                    'Beyond Words, Bubbling Ideas: Sparking Dialogue, Anytime, Anywhere',
-                    style: GoogleFonts.redHatDisplay(
-                      textStyle: const TextStyle(
-                        color: CupertinoColors.black,
-                        //    fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ))),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                        'Beyond Words, Bubbling Ideas Sparking \n           Dialogue, Anytime, Anywhere',
+                        style: GoogleFonts.redHatDisplay(
+                          textStyle: const TextStyle(
+                            color: CupertinoColors.black,
+                            //    fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ))),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Lottie.network(
-                'https://lottie.host/1e2daae8-a9a2-4609-a4c2-e43c3eb98351/0NyQvKf2b1.json',
+                'https://lottie.host/bad68b63-06d9-44a7-88e7-527cc54eac42/aLoSxyPlld.json',
                 width: 200,
                 height: 200,
                 repeat: true,
                 reverse: false,
                 animate: true,
+                filterQuality: FilterQuality.high
               ),
             ),
             ButtonBar(
-              alignment: MainAxisAlignment.start,
+              alignment: MainAxisAlignment.center,
               children: [
                 Material(
                   borderRadius: BorderRadius.circular(30.0),

@@ -2,6 +2,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:bubble_chat/Screens/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,6 +33,7 @@ class _LoginScreen extends State<SignUpScreen> {
         _image = im;
       });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -78,7 +80,8 @@ class _LoginScreen extends State<SignUpScreen> {
                         ),
                   Positioned(
                     bottom: -10,
-                    left: 10,
+                    right: 10,
+                    left: 70,
                     child: CupertinoButton(
                         onPressed: selectImage,
                         child: const Icon(
@@ -120,6 +123,11 @@ class _LoginScreen extends State<SignUpScreen> {
               ElevatedButton(
                 onPressed: _login,
                 child: const Text('SignUp'),
+              ),
+              CupertinoButton(
+                onPressed: () => Navigator.of(context).pushReplacement(
+                    CupertinoPageRoute(builder: (context) => const Home())),
+                child: const Text('Guest'),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

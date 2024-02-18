@@ -1,4 +1,4 @@
-// ignore: file_names
+
 import 'package:bubble_chat/Authentication/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,9 +42,9 @@ class _LoginScreen extends State<LoginScreen> {
                 'Bubble Design',
                 style: GoogleFonts.redressed(
                   textStyle: const TextStyle(
-                    color: CupertinoColors.systemPink,
+                    color: CupertinoColors.systemPurple,
                     fontWeight: FontWeight.bold,
-                    fontSize: 50,
+                    fontSize: 40,
                   ),
                 ),
               ),

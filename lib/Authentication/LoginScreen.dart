@@ -1,4 +1,4 @@
-// ignore: file_names
+
 import 'package:bubble_chat/Authentication/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

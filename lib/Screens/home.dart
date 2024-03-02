@@ -130,15 +130,17 @@ class MessagesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CupertinoColors.white,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(5.00),
-        physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics()),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             // Add a function to create horizontal stories
-          buildStories(),
+            // Add a function to create horizontal stories
+            buildStories(),
             Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -259,65 +261,67 @@ class MessagesPage extends StatelessWidget {
                 backgroundColor: CupertinoColors.systemPurple,
               ),
               title: Text('Alex'),
-              subtitle: Text('Definitely. Nothing beats that California weather. I can\'t wait to go back someday.'),
+              subtitle: Text(
+                  'Definitely. Nothing beats that California weather. I can\'t wait to go back someday.'),
             ),
           ],
         ),
       ),
     );
   }
+
   // Function to build horizontal stories
-Widget buildStories() {
-  return SizedBox(
-    height: 100,
-    child: ListView(
-      scrollDirection: Axis.horizontal,
-      children: [
-        buildStoryItem(
-          name: 'Name',
-          imageUrl:
-              'https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8TG9zJTIwQW5nZWxlc3xlbnwwfHwwfHx8MA%3D%3D',
-        ),
-        buildStoryItem(
-           name: 'Name',
-          imageUrl:
-              'https://images.unsplash.com/photo-1542737579-ba0a385f3b84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TG9zJTIwQW5nZWxlc3xlbnwwfHwwfHx8MA%3D%3D',
-        ),
-        buildStoryItem(
-           name: 'Name',
-          imageUrl:
-              'https://plus.unsplash.com/premium_photo-1708274149565-2831e10a65a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D',
-        ),
-        buildStoryItem(
-           name: 'Name',
-          imageUrl:
-              'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D',
-        ),
-        buildStoryItem(
-           name: 'Name',
-          imageUrl:
-              'https://plus.unsplash.com/premium_photo-1663013729768-8fcfe4cda447?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D',
-        ),
-        // Add more story items here if needed
-      ],
-    ),
-  );
-}
+  Widget buildStories() {
+    return SizedBox(
+      height: 100,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          buildStoryItem(
+            name: 'Name',
+            imageUrl:
+                'https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8TG9zJTIwQW5nZWxlc3xlbnwwfHwwfHx8MA%3D%3D',
+          ),
+          buildStoryItem(
+            name: 'Name',
+            imageUrl:
+                'https://images.unsplash.com/photo-1542737579-ba0a385f3b84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TG9zJTIwQW5nZWxlc3xlbnwwfHwwfHx8MA%3D%3D',
+          ),
+          buildStoryItem(
+            name: 'Name',
+            imageUrl:
+                'https://plus.unsplash.com/premium_photo-1708274149565-2831e10a65a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D',
+          ),
+          buildStoryItem(
+            name: 'Name',
+            imageUrl:
+                'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D',
+          ),
+          buildStoryItem(
+            name: 'Name',
+            imageUrl:
+                'https://plus.unsplash.com/premium_photo-1663013729768-8fcfe4cda447?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D',
+          ),
+          // Add more story items here if needed
+        ],
+      ),
+    );
+  }
 
 // Function to build individual story item
-Widget buildStoryItem({required String imageUrl, required String name}) {
-  return Container(
-    margin: const EdgeInsets.all(8),
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      border: Border.all(color: Colors.deepPurple, width: 3),
-    ),
-    child: CircleAvatar(
-      radius: 30,
-      backgroundImage: NetworkImage(imageUrl),
-    ),
-  );
-}
+  Widget buildStoryItem({required String imageUrl, required String name}) {
+    return Container(
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.deepPurple, width: 3),
+      ),
+      child: CircleAvatar(
+        radius: 30,
+        backgroundImage: NetworkImage(imageUrl),
+      ),
+    );
+  }
 }
 
 class GroupsPage extends StatelessWidget {

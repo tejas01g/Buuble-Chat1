@@ -11,15 +11,15 @@ Map<Sky, Color> skyColors = <Sky, Color>{
 };
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
 }
 
-Sky _selectedSegment = Sky.messages;
-
 class _HomeState extends State<Home> {
+  late Sky _selectedSegment = Sky.messages; // Define _selectedSegment here
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,86 +32,120 @@ class _HomeState extends State<Home> {
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: CupertinoTextField(
-                placeholder: 'Search Messages',
-                style: GoogleFonts.redHatDisplay(
-                  textStyle: const TextStyle(
-                    color: CupertinoColors.black,
-                    fontSize: 17,
-                  ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: CupertinoTextField(
+              placeholder: 'Search Messages',
+              style: GoogleFonts.redHatDisplay(
+                textStyle: const TextStyle(
+                  color: CupertinoColors.black,
+                  fontSize: 17,
                 ),
-                suffix: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      CupertinoIcons.line_horizontal_3_decrease,
-                      color: CupertinoColors.systemPurple,
-                    )),
-                prefix: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      CupertinoIcons.search,
-                      color: CupertinoColors.systemPurple,
-                    )),
+              ),
+              suffix: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  CupertinoIcons.line_horizontal_3_decrease,
+                  color: CupertinoColors.systemPurple,
+                ),
+              ),
+              prefix: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  CupertinoIcons.search,
+                  color: CupertinoColors.systemPurple,
+                ),
               ),
             ),
-            CupertinoSlidingSegmentedControl<Sky>(
-              backgroundColor: const Color.fromARGB(255, 247, 247, 247),
-              thumbColor: skyColors[_selectedSegment]!,
-
-              // This represents the currently selected segmented control.
-              groupValue: _selectedSegment,
-              // Callback that sets the selected segmented control.
-              onValueChanged: (Sky? value) {
-                if (value != null) {
-                  setState(() {
-                    _selectedSegment = value;
-                  });
-                }
-              },
-              children: <Sky, Widget>{
-                Sky.messages: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Messages',
-                    style: TextStyle(
-                      color: _selectedSegment == Sky.messages
-                          ? CupertinoColors.white
-                          : CupertinoColors.black,
-                    ),
+          ),
+          CupertinoSlidingSegmentedControl<Sky>(
+            backgroundColor: const Color.fromARGB(255, 247, 247, 247),
+            thumbColor: skyColors[_selectedSegment]!,
+            groupValue: _selectedSegment,
+            onValueChanged: (Sky? value) {
+              if (value != null) {
+                setState(() {
+                  _selectedSegment = value;
+                });
+              }
+            },
+            children: <Sky, Widget>{
+              Sky.messages: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'Messages',
+                  style: TextStyle(
+                    color: _selectedSegment == Sky.messages
+                        ? CupertinoColors.white
+                        : CupertinoColors.black,
                   ),
                 ),
-                Sky.viridian: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Groups',
-                    style: TextStyle(
-                      color: _selectedSegment == Sky.viridian
-                          ? CupertinoColors.white
-                          : CupertinoColors.black,
-                    ),
+              ),
+              Sky.viridian: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'Groups',
+                  style: TextStyle(
+                    color: _selectedSegment == Sky.viridian
+                        ? CupertinoColors.white
+                        : CupertinoColors.black,
                   ),
                 ),
-                Sky.cerulean: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Request',
-                    style: TextStyle(
-                      color: _selectedSegment == Sky.cerulean
-                          ? CupertinoColors.white
-                          : CupertinoColors.black,
-                    ),
+              ),
+              Sky.cerulean: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'Request',
+                  style: TextStyle(
+                    color: _selectedSegment == Sky.cerulean
+                        ? CupertinoColors.white
+                        : CupertinoColors.black,
                   ),
                 ),
-              },
+              ),
+            },
+          ),
+          Expanded(
+            child: IndexedStack(
+              index: _selectedSegment.index,
+              children: [
+                MessagesPage(),
+                GroupsPage(),
+                RequestsPage(),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class MessagesPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Messages Page'),
+    );
+  }
+}
+
+class GroupsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Groups Page'),
+    );
+  }
+}
+
+class RequestsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Requests Page'),
     );
   }
 }

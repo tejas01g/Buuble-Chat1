@@ -3,9 +3,12 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:bubble_chat/Screens/home.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({
@@ -22,6 +25,7 @@ class _LoginScreen extends State<SignUpScreen> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
+
   Future<void> selectImage() async {
     final picker = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (picker != null) {
@@ -122,6 +126,7 @@ class _LoginScreen extends State<SignUpScreen> {
                 onPressed: _login,
                 child: const Text('SignUp'),
               ),
+
               CupertinoButton(
                 onPressed: () => Navigator.of(context).pushReplacement(
                     CupertinoPageRoute(builder: (context) => const Home())),
